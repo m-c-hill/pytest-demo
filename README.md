@@ -63,19 +63,26 @@ pip install -r requirements/test_requirement.txt
 
 ### Test directory and file naming conventions
 
-- Directory Structure: Place your tests in a directory named tests at the root of your project.
-- File Naming: Test files should start with test\* and end with .py. For example, test_example.py.
-- Function Naming: Test functions should also start with test\*.
+- *Directory Structure*: Place your tests in a directory named tests at the root of your project. This can then be split into test types or mirror the structure of your source code. A common structure I like to use is:
 
-### Test discovery
+```bash
+.
+└── tests
+    ├── conftest.py  # Common fixture shared between multiple modules
+    ├── data  # Directory containing data used in your tests (ie. csv files to be loaded by a fixture)
+    ├── unit  # Unit tests - tests focused on individual functions.
+    └── integration  # Initegration tests - tests involving multiple components working together.
+```
+- *File Naming*: Test files must start with `test`. For example, test_example.py.
+- *Function Naming*: Test functions should also start with `test`. For example, `def test_feature_a():`
 
-pytest automatically discovers test files and functions based on naming conventions. By default, pytest looks for test files that start with test* or end with `_test.py` and test functions that start with test*.
+When run, pytest will then automatically discover test files and functions based on the above naming conventions.
 
 ### Running your first test
 
-Create a file named test_demo.py in your tests directory with the following content:
+Create a file named `test_demo.py` in your tests directory with the following content:
 
-```
+```python
 def test_sum():
     x = 1
     y = 2
@@ -84,13 +91,27 @@ def test_sum():
 
 Run the test using the command:
 
-```
+```bash
 pytest
 ```
 
-This will discover and execute the `test_sum` function.
+Pytest will automatically discover and execute the `test_sum` function.
 
-## Key features
+The output should show `test_demo.py` passing successfully:
+
+```bash
+========================================= test session starts ==========================================
+platform linux -- Python 3.11.0rc1, pytest-8.3.2, pluggy-1.5.0
+rootdir: /home/matt/code/demo
+collected 1 item
+
+test_demo.py .                                                                                   [100%]
+
+========================================== 1 passed in 0.01s ===========================================
+```
+
+
+## Key Features
 
 ### Assertions
 
@@ -105,7 +126,7 @@ def test_sum():
 
 ### Running specific tests
 
-You can run a specific test file or function using the following syntax:
+A specific test file or function can be run using the following commands:
 
 ```bash
 # Run all tests in a specific file
@@ -251,6 +272,15 @@ def test_feature():
 ```
 
 The above test will now be skipped when running the test suite.
+
+### Further Features
+
+There are a number of advanced features which are not discussed here, but are . These include:
+
+* [pytest-cov](https://pypi.org/project/pytest-cov/): plugin for measuring test coverage
+* [pytest-mock](https://pytest-mock.readthedocs.io/en/latest/usage.html): plugin for mocking and patching within test functions
+* [requests-mock](https://requests-mock.readthedocs.io/en/latest/pytest.html): plugin for mocking HTTP requests
+
 
 ## Debugging Tests
 
