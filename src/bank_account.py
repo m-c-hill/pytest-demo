@@ -19,7 +19,7 @@ class BankAccount:
         """
         Deposit money into the account
         """
-        if amount <= 0:
+        if amount < 0:
             raise NegativeDepositError(amount)
         self.balance += amount
         logger.info(f"Deposited {amount}. New balance is {self.balance}")
