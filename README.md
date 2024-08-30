@@ -194,7 +194,7 @@ import pytest
     (3, 0, 3),
 ])
 def test_sum(a, b, expected):
-    assert input == expected
+    assert sum([a, b]) == expected
 ```
 
 In this example, the `test_sum` function is executed three times with three different sets of values for `a`, `b` and `expected`.
