@@ -105,7 +105,7 @@ platform linux -- Python 3.11.0rc1, pytest-8.3.2, pluggy-1.5.0
 rootdir: /home/matt/code/demo
 collected 1 item
 
-test_demo.py .                                                                                   [100%]
+test_demo.py::test_sum PASSED                                                                     [100%]
 
 ========================================== 1 passed in 0.01s ===========================================
 ```
