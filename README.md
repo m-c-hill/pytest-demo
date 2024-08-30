@@ -27,7 +27,7 @@ This approach encourages simple designs and increases confidence in the codebase
 
 ### What is pytest?
 
-`pytest` is a popular testing framework for Python, and has become the de factor testing framework within the Python development space.
+`pytest` is a popular testing framework for Python, and has become the de facto testing framework within the Python development space.
 
 It's simple, flexible, and provides a number of features, such as fixtures and parameterization. There are also an extensive number of plugins available for specific needs, such as request mocking and code coverage.
 
@@ -105,7 +105,7 @@ platform linux -- Python 3.11.0rc1, pytest-8.3.2, pluggy-1.5.0
 rootdir: /home/matt/code/demo
 collected 1 item
 
-test_demo.py .                                                                                   [100%]
+test_demo.py::test_sum PASSED                                                                     [100%]
 
 ========================================== 1 passed in 0.01s ===========================================
 ```
