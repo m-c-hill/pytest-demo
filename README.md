@@ -22,7 +22,6 @@ This approach encourages simple designs and increases confidence in the codebase
 - **Refactor**: Improve the code while keeping the tests passing. This might involve removing duplication, improving readability, or optimizing performance.
 
 ![image](assets/TDD.webp)
-_The TDD development cycle_
 
 ## Introduction to pytest
 
@@ -63,7 +62,7 @@ pip install -r requirements/test_requirement.txt
 
 ### Test directory and file naming conventions
 
-- *Directory Structure*: Place your tests in a directory named tests at the root of your project. This can then be split into test types or mirror the structure of your source code. A common structure I like to use is:
+- **Directory Structure**: Place your tests in a directory named tests at the root of your project. This can then be split into test types or mirror the structure of your source code. A common structure I like to use is:
 
 ```bash
 .
@@ -73,8 +72,9 @@ pip install -r requirements/test_requirement.txt
     ├── unit  # Unit tests - tests focused on individual functions.
     └── integration  # Initegration tests - tests involving multiple components working together.
 ```
-- *File Naming*: Test files must start with `test`. For example, test_example.py.
-- *Function Naming*: Test functions should also start with `test`. For example, `def test_feature_a():`
+
+- **File Naming**: Test files must start with `test`. For example, test_example.py.
+- **Function Naming**: Test functions should also start with `test`. For example, `def test_feature_a():`
 
 When run, pytest will then automatically discover test files and functions based on the above naming conventions.
 
@@ -109,7 +109,6 @@ test_demo.py .                                                                  
 
 ========================================== 1 passed in 0.01s ===========================================
 ```
-
 
 ## Key Features
 
@@ -221,7 +220,7 @@ The example test `test_zero_division` will pass since `x = 1 / 0` raises a `Zero
 
 Caplog is a built-in fixture in pytest that allows for logs to be inspected. To use caplog, pass `caplog` in as a fixture to the test function - no import is required.
 
-The fixture injects a context manager into the test function that can then be used to inspect the contents of any logs produced during the test by evaluating `caplog.text`. The level of log capturing can be specified using `atlevel` when calling caplog, which by default is `logging.INFO`.
+The fixture injects a context manager into the test function that can then be used to inspect the contents of any logs produced during the test by evaluating `caplog.text`. The level of log capturing can be specified using `at_level` when calling caplog, which by default is `logging.INFO`.
 
 ```python
 import logging
@@ -277,10 +276,9 @@ The above test will now be skipped when running the test suite.
 
 There are a number of advanced features which are not discussed here, but are . These include:
 
-* [pytest-cov](https://pypi.org/project/pytest-cov/): plugin for measuring test coverage
-* [pytest-mock](https://pytest-mock.readthedocs.io/en/latest/usage.html): plugin for mocking and patching within test functions
-* [requests-mock](https://requests-mock.readthedocs.io/en/latest/pytest.html): plugin for mocking HTTP requests
-
+- [pytest-cov](https://pypi.org/project/pytest-cov/): plugin for measuring test coverage
+- [pytest-mock](https://pytest-mock.readthedocs.io/en/latest/usage.html): plugin for mocking and patching within test functions
+- [requests-mock](https://requests-mock.readthedocs.io/en/latest/pytest.html): plugin for mocking HTTP requests
 
 ## Debugging Tests
 

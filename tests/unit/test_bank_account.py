@@ -69,7 +69,7 @@ def test_deposit_negative_amount(bank_account):
     "withdraw_amount, expected_balance", [(20, 80), (50, 50), (100, 0)]
 )
 def test_withdraw(bank_account, withdraw_amount, expected_balance, caplog):
-    with caplog.atlevel(logging.INFO):
+    with caplog.at_level(logging.INFO):
         bank_account.withdraw(withdraw_amount)
     assert bank_account.get_balance() == expected_balance
 
